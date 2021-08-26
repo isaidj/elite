@@ -3,7 +3,7 @@ import React from "react";
 import { CardCommander } from "./CardCommander";
 
 export const Commanders = () => {
-  const [img, setImg] = React.useState([]);
+  // const [img, setImg] = React.useState([]);
   const [perfil, setPerfil] = React.useState([]);
 
   /*function called componetDidMount()*/
@@ -12,8 +12,6 @@ export const Commanders = () => {
   }, []);
 
   const getData = async () => {
-    const requestOptions = {};
-
     //name
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
