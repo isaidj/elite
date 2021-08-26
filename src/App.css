@@ -1,10 +1,595 @@
-.App {
+:root {
+  --color-principal: #3748e1;
+}
+html {
+  scroll-snap-type: y;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: rgb(245, 245, 245);
+  z-index: 0;
+}
+.mouse {
+  position: relative;
+  height: auto;
+  width: auto;
+  background-color: aqua;
+  z-index: 20;
+}
+.header {
+  background-image: url(./images/artElite.jpg);
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+}
+.menu-container {
+  position: relative;
+  z-index: 100;
+}
+.menu {
+  position: fixed;
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  height: 60px;
+  width: 100%;
+}
+.menu h1,
+nav {
+  margin-top: 15px;
+}
+.menu h1 {
+  position: absolute;
+
+  font-family: "Exo 2", sans-serif;
+  left: 5%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 43px;
+
+  color: #ffff;
+
+  text-shadow: 0px 0px 5px var(--color-principal);
+}
+
+.menu nav {
+  position: absolute;
+
+  right: 10%;
+}
+.menu nav a {
+  margin-right: 20px;
+  font-family: Exo 2;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 29px;
+  text-decoration: none;
+  color: #ffffff;
+
+  text-shadow: 0px 0px 5px var(--color-principal);
+
+  font-family: "Exo 2", sans-serif;
+}
+
+.menu-lateral {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  background-color: rgba(55, 100, 196, 0.13);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: justify;
+
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 10;
+
+  animation: menuOpen 0.5s;
+}
+
+.menu-lateral a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 10%;
+  margin-top: 30px;
+
+  font-family: Exo 2;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 29px;
+  text-decoration: none;
+  color: #ffffff;
+
+  text-shadow: 0px 0px 5px var(--color-principal);
+
+  font-family: "Exo 2", sans-serif;
+}
+@keyframes menuOpen {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 50%;
+  }
+}
+.title {
+  text-align: center;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.title h1 {
+  font-family: Exo 2;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4rem;
+
+  text-decoration: none;
+  color: #ffffff;
+
+  text-shadow: 0px 0px 5px var(--color-principal);
+
+  font-family: "Exo 2", sans-serif;
+
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 10%;
+  margin: auto;
+
+  padding: 10px; */
+}
+
+.welcome {
+  scroll-snap-align: start;
+  margin-top: 65px;
+  text-align: center;
+  padding-top: 60px;
+
+  height: auto;
+  margin-bottom: 40px;
+}
+.span-line {
+  display: block;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 30px;
+  border-bottom: 2px solid #575757;
+}
+.span-line-left {
+  display: block;
+  margin-left: 20%;
+  margin-right: 20%;
+
+  width: 100%;
+  border-bottom: 2px solid #575757;
+}
+.span-line-right {
+  display: block;
+  margin-left: -20%;
+  width: 50%;
+  border-bottom: 2px solid #575757;
+}
+
+.discord-container {
+  width: 100%;
+  height: 80px;
+  display: inline-block;
+}
+.btn-discord {
+  border: 2px solid #000000;
+  height: 40px;
+  border-radius: 4px;
+  font-family: "Exo 2", sans-serif;
+  background-color: #ffffff;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.btn-discord:hover {
+  cursor: pointer;
+
+  color: #000000;
+
+  animation: blink 0.5s infinite alternate;
+  transition: all 0.2s ease;
+}
+.discord__logo {
+  width: 200px;
+  height: auto;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.anaconda-container {
+  width: 100%;
+  height: 300px;
+}
+#anaconda-img {
+  background-image: url(./images/anaconda.png);
+  background-repeat: repeat;
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+}
+.image-section {
+  /* galery of images adjust to display horizontally */
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: row;
+  z-index: 10;
+  align-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+.image-container {
+  position: relative;
+  margin-bottom: -5px;
+  height: 55vh;
+  width: 25%;
+}
+
+.image-container img {
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+  filter: saturate(0);
+}
+.image-container img:hover {
+  display: flex;
+
+  z-index: 50;
+  cursor: pointer;
+  animation: saturate-zoom 0.5s forwards;
+}
+
+@keyframes saturate-zoom {
+  from {
+    filter: saturate(0);
+  }
+  to {
+    filter: saturate(1);
+  }
+}
+/*keyframes zoom animation */
+
+@keyframes blink {
+  0% {
+    box-shadow: 0 0 0px rgb(59, 72, 255);
+  }
+  100% {
+    box-shadow: 0 0 50px rgb(59, 72, 255);
+  }
+}
+
+.modals {
+  /*center modal*/
+
+  position: relative;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  animation: modal-animation 0.3s;
+}
+@keyframes modal-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modals img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.close-modal {
+  /*close button to the right*/
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  margin-top: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  text-shadow: 0px 0px 5px var(--color-principal);
+}
+.close-modal:hover {
+  /*box shadow*/
+  box-shadow: 0px 0px 50px rgb(59, 72, 255);
+}
+
+.jugabilidad {
+  padding-top: 5rem;
+  scroll-snap-align: start;
+  height: 100vh;
+  z-index: 10;
+}
+
+.teamMissions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 60px;
+}
+.teamMissions img {
+  object-fit: cover;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  width: 40%;
+  height: auto;
+}
+.teamMissions div {
+  /*box rounded*/
+  width: 40%;
+  height: auto;
+  border-radius: 5px;
+
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.exploration {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.exploration img {
+  object-fit: cover;
+  width: 40%;
+  height: auto;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.exploration div {
+  width: 40%;
+}
+.h2-jugabilidad {
+  left: 5%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 43px;
+
+  color: rgb(39, 39, 39);
+
+  text-shadow: 0px 0px 0px var(--color-principal);
+}
+.h5-jugabilidad {
+  font-family: "Exo 2", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(39, 39, 39);
+}
+.btn__rank {
+  width: 68px;
+  height: 61px;
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  position: relative;
+
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.btn__rank:active,
+a:hover {
+  outline: 0;
+}
+.btn__rank:focus {
+  outline: 0;
+}
+.btn__rank {
+  text-decoration: none;
+  cursor: pointer;
+}
+.bg__commanders {
+  background-image: url(./images/lastMan.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.frame__commanders {
+  width: 70%;
+  height: auto;
+
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 100px;
+}
+.frame__menu__comanders {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  background-color: rgba(31, 78, 110, 0.404);
+
+  min-height: 109px;
+
+  padding: 25px 49px 0 49px;
+
+  font-size: 1.2rem;
+  font-family: "Exo 2", sans-serif;
+  color: #999999;
+  text-shadow: 0px 0px 5px var(--color-principal);
+}
+.filter {
+}
+.frame__menu__comanders__search {
+  height: 100v;
+  width: 500px;
+}
+
+.frame__menu__comanders__search input {
+  background-color: #575757;
+  height: 40px;
+  border-radius: 1px;
+  border: 1px solid #4e4e4e;
+}
+
+.frame__menu__comanders__search input:focus {
+  outline: none;
+  border: 1px solid rgb(85, 139, 201);
+  /*shadow interior*/
+  box-shadow: inset 0px 0px 40px rgb(85, 139, 201);
+}
+.frame__menu__comanders__search button {
+  /*button rounded futuristic*/
+  border-style: none;
+  height: 40px;
+  color: #dddddd;
+
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+
+  min-width: 25px;
+  border-radius: 0px 6px 0px 6px;
+  margin-left: 20px;
+  background-color: #6d74b3;
+}
+.frame__menu__comanders__search button:hover {
+  cursor: pointer;
+}
+.commanders__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 100vh;
+  height: auto;
+  width: auto;
+  border: 1px solid #0b1546;
+  border-top: none;
+  padding: 50px;
+
+  background-color: #0000008a;
+}
+
+.cardCommander__container {
+  background-color: rgba(211, 93, 63, 0.4);
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid #ffffff;
+  margin: 10px;
+}
+.cardCommander__img {
+  height: auto;
+  width: auto;
+}
+.cardCommander__name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0px 0px 5px var(--color-principal);
+}
+.cardCommander__description {
+}
+
+@media only screen and (max-width: 768px) {
+  .menu nav {
+    visibility: hidden;
+  }
+  .menu-lateral {
+    visibility: visible;
+  }
+  .image-section img {
+    width: 100%;
+    height: auto;
+  }
+  .image-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .modals {
+    /*center modal*/
+    position: relative;
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  .image-container img {
+    object-fit: cover;
+
+    width: 100%;
+    height: auto;
+    filter: saturate(0);
+  }
+  .teamMissions img {
+    object-fit: cover;
+    width: 100%;
+  }
+  .teamMissions div {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .exploration img {
+    object-fit: cover;
+    width: 100%;
+  }
+  .exploration div {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @keyframes modal-animation {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}
+
+/* .App {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.estilo {
+  background-color: #282c34;
+  color: bisque;
+  text-align: center;
+}
+.menor {
+  color: #61dafb;
+}
+.mayor {
+  color: crimson;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +620,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */ ;
